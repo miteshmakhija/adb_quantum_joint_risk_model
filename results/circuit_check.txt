@@ -1,0 +1,17 @@
+Full loader A (ADB base case):
+  expected_principal_loss_usd              circuit 10063513.35   exact 10063513.35
+  joint_attachment_probability             circuit 0.04413776873   exact 0.04413776873
+  portfolio_loss_exceedance_probability    circuit 0.01204672091   exact 0.01204672091
+  portfolio_stop_loss_usd                  circuit 282354.6986   exact 282354.6986
+  both_bonds_exhausted_probability         circuit 3.163304631e-05   exact 3.163304631e-05
+
+Stratum loaders for 'both exhausted', after Q^k A (circuit vs ideal):
+  1 shocks   k=0  circuit 0.00068582   ideal 0.00068582
+  1 shocks   k=1  circuit 0.00616114   ideal 0.00616114
+  1 shocks   k=2  circuit 0.01705172   ideal 0.01705172
+  2+ shocks  k=0  circuit 0.10174060   ideal 0.10174060
+  2+ shocks  k=1  circuit 0.68408791   ideal 0.68408791
+  2+ shocks  k=2  circuit 0.99725614   ideal 0.99725614
+
+Gate counts of the stratum circuit (lookup objective, basis u/cx):
+  {'A': {'u': 23969, 'cx': 20423}, 'A_depth': 29949, 'Q': {'u': 49139, 'cx': 43144}, 'Q_depth': 59238}

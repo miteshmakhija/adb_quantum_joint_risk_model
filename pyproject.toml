@@ -1,0 +1,13 @@
+[project]
+name = "jointloss"
+version = "0.1.0"
+description = "Shock-split quantum amplitude estimation for multi-country disaster bond joint loss"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.26", "scipy>=1.11", "matplotlib>=3.8"]
+
+[project.optional-dependencies]
+quantum = ["qiskit>=1.2"]
+test = ["pytest>=8.0"]
+
+[tool.setuptools]
+packages = ["jointloss"]

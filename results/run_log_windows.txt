@@ -1,0 +1,604 @@
+(.venv) PS C:\Mitesh\ADBChallenge\adb_jointloss> python run.py reference
+scenario             expected_principal_los   joint_attachment_proba   portfolio_loss_exceeda   portfolio_stop_loss_us   both_bonds_exhausted_p
+adb-base                         10,063,513                  4.4138%                  1.2047%                  282,355                  0.0032%   max gap between methods 8.1e-14
+adb-independent                  10,063,513                  2.7156%                  0.7186%                  171,266                  0.0004%   max gap between methods 2.0e-14
+adb-common-shock                 10,063,513                  5.0526%                  1.6066%                  385,043                  0.0044%   max gap between methods 1.8e-14
+adb-rain-stress                  11,170,506                  7.0464%                  1.3215%                  306,286                  0.0069%   max gap between methods 8.7e-14
+adb-rain-cover                    9,970,051                  4.4138%                  0.6997%                  170,927                  0.0032%   max gap between methods 8.1e-14
+(.venv) PS C:\Mitesh\ADBChallenge\adb_jointloss> python run.py benchmark --quick
+  adb-base          Monte Carlo              effort=1024
+  adb-base          Monte Carlo              effort=8192
+  adb-base          Monte Carlo              effort=65536
+  adb-base          Monte Carlo              effort=524288
+  adb-base          Scrambled Sobol          effort=1024
+  adb-base          Scrambled Sobol          effort=8192
+  adb-base          Scrambled Sobol          effort=65536
+  adb-base          Scrambled Sobol          effort=524288
+  adb-base          Stratified               effort=1024
+  adb-base          Stratified               effort=8192
+  adb-base          Stratified               effort=65536
+  adb-base          Stratified               effort=524288
+  adb-base          Importance sampling      effort=1024
+  adb-base          Importance sampling      effort=8192
+  adb-base          Importance sampling      effort=65536
+  adb-base          Importance sampling      effort=524288
+  adb-base          Latent Monte Carlo       effort=1024
+  adb-base          Latent Monte Carlo       effort=8192
+  adb-base          Latent Monte Carlo       effort=65536
+  adb-base          Latent Monte Carlo       effort=524288
+  adb-base          Calm-peeled MC           effort=1024
+  adb-base          Calm-peeled MC           effort=8192
+  adb-base          Calm-peeled MC           effort=65536
+  adb-base          Calm-peeled MC           effort=524288
+  adb-base          Plain QAE                effort=0.3
+  adb-base          Plain QAE                effort=0.1
+  adb-base          Plain QAE                effort=0.03
+  adb-base          Plain QAE                effort=0.01
+  adb-base          Shock-split QAE (ours)   effort=0.3
+  adb-base          Shock-split QAE (ours)   effort=0.1
+  adb-base          Shock-split QAE (ours)   effort=0.03
+  adb-base          Shock-split QAE (ours)   effort=0.01
+
+Queries needed for 10% relative RMSE (adb-base)
+method                      expected_principal  joint_attachment_p  portfolio_loss_exc  portfolio_stop_los  both_bonds_exhaust
+Monte Carlo                              1,024               5,960              11,637              18,914         > max tried
+Scrambled Sobol                          1,024               1,258               8,325               6,299         > max tried
+Stratified                               1,023               1,023               2,122               4,185         > max tried
+Importance sampling                      1,024               1,152               1,024               1,448              62,658
+Latent Monte Carlo                       1,024               2,708               9,485               8,769         > max tried
+Calm-peeled MC                           1,024           exact (0)               1,024               1,024              79,330
+Plain QAE                                1,700               1,525               2,725               6,338              77,875
+Shock-split QAE (ours)                     100                 100                 675               1,575              14,725
+
+Queries needed for 1% relative RMSE (adb-base)
+method                      expected_principal  joint_attachment_p  portfolio_loss_exc  portfolio_stop_los  both_bonds_exhaust
+Monte Carlo                             32,057             226,725         > max tried         > max tried         > max tried
+Scrambled Sobol                          2,014              21,001             114,465             129,468         > max tried
+Stratified                               2,070              55,389             248,881             242,026         > max tried
+Importance sampling                     10,140             143,679             108,508              77,681         > max tried
+Latent Monte Carlo                      39,889         > max tried         > max tried         > max tried         > max tried
+Calm-peeled MC                           1,024           exact (0)              11,326              11,048         > max tried
+Plain QAE                                6,229              10,133              15,131              26,154             145,641
+Shock-split QAE (ours)                     180                 143                 992               1,575              35,546
+
+Saved results\benchmark.csv and plots in results/
+(.venv) PS C:\Mitesh\ADBChallenge\adb_jointloss> python run.py benchmark        
+  adb-base          Monte Carlo              effort=1024
+  adb-base          Monte Carlo              effort=4096
+  adb-base          Monte Carlo              effort=16384
+  adb-base          Monte Carlo              effort=65536
+  adb-base          Monte Carlo              effort=262144
+  adb-base          Monte Carlo              effort=1.04858e+06
+  adb-base          Scrambled Sobol          effort=1024
+  adb-base          Scrambled Sobol          effort=4096
+  adb-base          Scrambled Sobol          effort=16384
+  adb-base          Scrambled Sobol          effort=65536
+  adb-base          Scrambled Sobol          effort=262144
+  adb-base          Scrambled Sobol          effort=1.04858e+06
+  adb-base          Stratified               effort=1024
+  adb-base          Stratified               effort=4096
+  adb-base          Stratified               effort=16384
+  adb-base          Stratified               effort=65536
+  adb-base          Stratified               effort=262144
+  adb-base          Stratified               effort=1.04858e+06
+  adb-base          Importance sampling      effort=1024
+  adb-base          Importance sampling      effort=4096
+  adb-base          Importance sampling      effort=16384
+  adb-base          Importance sampling      effort=65536
+  adb-base          Importance sampling      effort=262144
+  adb-base          Importance sampling      effort=1.04858e+06
+  adb-base          Latent Monte Carlo       effort=1024
+  adb-base          Latent Monte Carlo       effort=4096
+  adb-base          Latent Monte Carlo       effort=16384
+  adb-base          Latent Monte Carlo       effort=65536
+  adb-base          Latent Monte Carlo       effort=262144
+  adb-base          Latent Monte Carlo       effort=1.04858e+06
+  adb-base          Calm-peeled MC           effort=1024
+  adb-base          Calm-peeled MC           effort=4096
+  adb-base          Calm-peeled MC           effort=16384
+  adb-base          Calm-peeled MC           effort=65536
+  adb-base          Calm-peeled MC           effort=262144
+  adb-base          Calm-peeled MC           effort=1.04858e+06
+  adb-base          Plain QAE                effort=3
+  adb-base          Plain QAE                effort=1.5
+  adb-base          Plain QAE                effort=0.8
+  adb-base          Plain QAE                effort=0.5
+  adb-base          Plain QAE                effort=0.3
+  adb-base          Plain QAE                effort=0.1
+  adb-base          Plain QAE                effort=0.03
+  adb-base          Plain QAE                effort=0.01
+  adb-base          Plain QAE                effort=0.003
+  adb-base          Shock-split QAE (ours)   effort=3
+  adb-base          Shock-split QAE (ours)   effort=1.5
+  adb-base          Shock-split QAE (ours)   effort=0.8
+  adb-base          Shock-split QAE (ours)   effort=0.5
+  adb-base          Shock-split QAE (ours)   effort=0.3
+  adb-base          Shock-split QAE (ours)   effort=0.1
+  adb-base          Shock-split QAE (ours)   effort=0.03
+  adb-base          Shock-split QAE (ours)   effort=0.01
+  adb-base          Shock-split QAE (ours)   effort=0.003
+
+Queries needed for 10% relative RMSE (adb-base)
+method                      expected_principal  joint_attachment_p  portfolio_loss_exc  portfolio_stop_los  both_bonds_exhaust
+Monte Carlo                              1,024               2,950               8,775              11,600         > max tried
+Scrambled Sobol                          1,024               1,033               5,187              10,440         > max tried
+Stratified                               1,023               1,023               2,500               3,495         > max tried
+Importance sampling                      1,024               1,256               1,030               1,024             126,665
+Latent Monte Carlo                       1,024               2,568               8,175              12,819         > max tried
+Calm-peeled MC                           1,024           exact (0)               1,024               1,024              68,116
+Plain QAE                                  792                 748               1,624               2,259              18,052
+Shock-split QAE (ours)                     100                 100                 100                 192               5,397
+
+Queries needed for 1% relative RMSE (adb-base)
+method                      expected_principal  joint_attachment_p  portfolio_loss_exc  portfolio_stop_los  both_bonds_exhaust
+Monte Carlo                             42,156             148,425             653,072         > max tried         > max tried
+Scrambled Sobol                          2,496              24,191             138,677             156,864         > max tried
+Stratified                               5,000              58,791             225,403             340,089         > max tried
+Importance sampling                     11,329             115,009              98,381             170,981         > max tried
+Latent Monte Carlo                      71,845             309,048             703,225         > max tried         > max tried
+Calm-peeled MC                           1,024           exact (0)               5,778              22,623         > max tried
+Plain QAE                               10,047              12,116              29,519              20,417             326,912
+Shock-split QAE (ours)                     231                 143               3,992               2,570              42,257
+  adb-independent   Monte Carlo              effort=1024
+  adb-independent   Monte Carlo              effort=4096
+  adb-independent   Monte Carlo              effort=16384
+  adb-independent   Monte Carlo              effort=65536
+  adb-independent   Monte Carlo              effort=262144
+  adb-independent   Monte Carlo              effort=1.04858e+06
+  adb-independent   Scrambled Sobol          effort=1024
+  adb-independent   Scrambled Sobol          effort=4096
+  adb-independent   Scrambled Sobol          effort=16384
+  adb-independent   Scrambled Sobol          effort=65536
+  adb-independent   Scrambled Sobol          effort=262144
+  adb-independent   Scrambled Sobol          effort=1.04858e+06
+  adb-independent   Stratified               effort=1024
+  adb-independent   Stratified               effort=4096
+  adb-independent   Stratified               effort=16384
+  adb-independent   Stratified               effort=65536
+  adb-independent   Stratified               effort=262144
+  adb-independent   Stratified               effort=1.04858e+06
+  adb-independent   Importance sampling      effort=1024
+  adb-independent   Importance sampling      effort=4096
+  adb-independent   Importance sampling      effort=16384
+  adb-independent   Importance sampling      effort=65536
+  adb-independent   Importance sampling      effort=262144
+  adb-independent   Importance sampling      effort=1.04858e+06
+  adb-independent   Latent Monte Carlo       effort=1024
+  adb-independent   Latent Monte Carlo       effort=4096
+  adb-independent   Latent Monte Carlo       effort=16384
+  adb-independent   Latent Monte Carlo       effort=65536
+  adb-independent   Latent Monte Carlo       effort=262144
+  adb-independent   Latent Monte Carlo       effort=1.04858e+06
+  adb-independent   Calm-peeled MC           effort=1024
+  adb-independent   Calm-peeled MC           effort=4096
+  adb-independent   Calm-peeled MC           effort=16384
+  adb-independent   Calm-peeled MC           effort=65536
+  adb-independent   Calm-peeled MC           effort=262144
+  adb-independent   Calm-peeled MC           effort=1.04858e+06
+  adb-independent   Plain QAE                effort=3
+  adb-independent   Plain QAE                effort=1.5
+  adb-independent   Plain QAE                effort=0.8
+  adb-independent   Plain QAE                effort=0.5
+  adb-independent   Plain QAE                effort=0.3
+  adb-independent   Plain QAE                effort=0.1
+  adb-independent   Plain QAE                effort=0.03
+  adb-independent   Plain QAE                effort=0.01
+  adb-independent   Plain QAE                effort=0.003
+  adb-independent   Shock-split QAE (ours)   effort=3
+  adb-independent   Shock-split QAE (ours)   effort=1.5
+  adb-independent   Shock-split QAE (ours)   effort=0.8
+  adb-independent   Shock-split QAE (ours)   effort=0.5
+  adb-independent   Shock-split QAE (ours)   effort=0.3
+  adb-independent   Shock-split QAE (ours)   effort=0.1
+  adb-independent   Shock-split QAE (ours)   effort=0.03
+  adb-independent   Shock-split QAE (ours)   effort=0.01
+  adb-independent   Shock-split QAE (ours)   effort=0.003
+
+Queries needed for 10% relative RMSE (adb-independent)
+method                      expected_principal  joint_attachment_p  portfolio_loss_exc  portfolio_stop_los  both_bonds_exhaust
+Monte Carlo                              1,024               4,712              13,991              25,084         > max tried
+Scrambled Sobol                          1,024               1,556               9,961              19,058         > max tried
+Stratified                               1,023               1,023               4,717               5,787         > max tried
+Importance sampling                      1,024               1,277               1,024               1,207             331,951
+Latent Monte Carlo                       1,024               2,522              27,770              38,329         > max tried
+Calm-peeled MC                       exact (0)           exact (0)           exact (0)           exact (0)           exact (0)
+Plain QAE                                  463               1,262               1,665               3,072              65,992
+Shock-split QAE (ours)               exact (0)           exact (0)           exact (0)           exact (0)           exact (0)
+
+Queries needed for 1% relative RMSE (adb-independent)
+method                      expected_principal  joint_attachment_p  portfolio_loss_exc  portfolio_stop_los  both_bonds_exhaust
+Monte Carlo                             37,691             293,290         > max tried         > max tried         > max tried
+Scrambled Sobol                          2,115              55,939             177,856             214,386         > max tried
+Stratified                               6,440             107,172             335,632             777,174         > max tried
+Importance sampling                     12,127              57,334             105,347             142,337         > max tried
+Latent Monte Carlo                      37,797             393,486             934,483         > max tried         > max tried
+Calm-peeled MC                       exact (0)           exact (0)           exact (0)           exact (0)           exact (0)
+Plain QAE                                6,356              10,067              19,601              28,661             593,121
+Shock-split QAE (ours)               exact (0)           exact (0)           exact (0)           exact (0)           exact (0)
+  adb-common-shock  Monte Carlo              effort=1024
+  adb-common-shock  Monte Carlo              effort=4096
+  adb-common-shock  Monte Carlo              effort=16384
+  adb-common-shock  Monte Carlo              effort=65536
+  adb-common-shock  Monte Carlo              effort=262144
+  adb-common-shock  Monte Carlo              effort=1.04858e+06
+  adb-common-shock  Scrambled Sobol          effort=1024
+  adb-common-shock  Scrambled Sobol          effort=4096
+  adb-common-shock  Scrambled Sobol          effort=16384
+  adb-common-shock  Scrambled Sobol          effort=65536
+  adb-common-shock  Scrambled Sobol          effort=262144
+  adb-common-shock  Scrambled Sobol          effort=1.04858e+06
+  adb-common-shock  Stratified               effort=1024
+  adb-common-shock  Stratified               effort=4096
+  adb-common-shock  Stratified               effort=16384
+  adb-common-shock  Stratified               effort=65536
+  adb-common-shock  Stratified               effort=262144
+  adb-common-shock  Stratified               effort=1.04858e+06
+  adb-common-shock  Importance sampling      effort=1024
+  adb-common-shock  Importance sampling      effort=4096
+  adb-common-shock  Importance sampling      effort=16384
+  adb-common-shock  Importance sampling      effort=65536
+  adb-common-shock  Importance sampling      effort=262144
+  adb-common-shock  Importance sampling      effort=1.04858e+06
+  adb-common-shock  Latent Monte Carlo       effort=1024
+  adb-common-shock  Latent Monte Carlo       effort=4096
+  adb-common-shock  Latent Monte Carlo       effort=16384
+  adb-common-shock  Latent Monte Carlo       effort=65536
+  adb-common-shock  Latent Monte Carlo       effort=262144
+  adb-common-shock  Latent Monte Carlo       effort=1.04858e+06
+  adb-common-shock  Calm-peeled MC           effort=1024
+  adb-common-shock  Calm-peeled MC           effort=4096
+  adb-common-shock  Calm-peeled MC           effort=16384
+  adb-common-shock  Calm-peeled MC           effort=65536
+  adb-common-shock  Calm-peeled MC           effort=262144
+  adb-common-shock  Calm-peeled MC           effort=1.04858e+06
+  adb-common-shock  Plain QAE                effort=3
+  adb-common-shock  Plain QAE                effort=1.5
+  adb-common-shock  Plain QAE                effort=0.8
+  adb-common-shock  Plain QAE                effort=0.5
+  adb-common-shock  Plain QAE                effort=0.3
+  adb-common-shock  Plain QAE                effort=0.1
+  adb-common-shock  Plain QAE                effort=0.03
+  adb-common-shock  Plain QAE                effort=0.01
+  adb-common-shock  Plain QAE                effort=0.003
+  adb-common-shock  Shock-split QAE (ours)   effort=3
+  adb-common-shock  Shock-split QAE (ours)   effort=1.5
+  adb-common-shock  Shock-split QAE (ours)   effort=0.8
+  adb-common-shock  Shock-split QAE (ours)   effort=0.5
+  adb-common-shock  Shock-split QAE (ours)   effort=0.3
+  adb-common-shock  Shock-split QAE (ours)   effort=0.1
+  adb-common-shock  Shock-split QAE (ours)   effort=0.03
+  adb-common-shock  Shock-split QAE (ours)   effort=0.01
+  adb-common-shock  Shock-split QAE (ours)   effort=0.003
+
+Queries needed for 10% relative RMSE (adb-common-shock)
+method                      expected_principal  joint_attachment_p  portfolio_loss_exc  portfolio_stop_los  both_bonds_exhaust
+Monte Carlo                              1,024               2,789               6,542               8,713         > max tried
+Scrambled Sobol                          1,024               1,024               4,255               5,813         > max tried
+Stratified                               1,023               1,023               1,401               3,737             908,858
+Importance sampling                      1,024               1,286               1,024               1,024             106,140
+Latent Monte Carlo                       1,024               1,768               6,346               6,209         > max tried
+Calm-peeled MC                           1,024           exact (0)               1,024               1,024              56,555
+Plain QAE                                  439                 446                 901               1,780              21,749
+Shock-split QAE (ours)                     100                 100                 100                 230               3,759
+
+Queries needed for 1% relative RMSE (adb-common-shock)
+method                      expected_principal  joint_attachment_p  portfolio_loss_exc  portfolio_stop_los  both_bonds_exhaust
+Monte Carlo                             43,550             145,031             466,876             837,443         > max tried
+Scrambled Sobol                          2,552              16,641              78,698              68,821         > max tried
+Stratified                               5,002              42,923             110,970             304,553         > max tried
+Importance sampling                     10,869              86,990              91,866              96,269         > max tried
+Latent Monte Carlo                      84,210             299,143             652,440             928,830         > max tried
+Calm-peeled MC                           1,024           exact (0)               7,861              12,867         > max tried
+Plain QAE                                6,007               5,286              12,824              21,092             193,974
+Shock-split QAE (ours)                     362                 148               1,536               3,746              39,832
+  adb-rain-stress   Monte Carlo              effort=1024
+  adb-rain-stress   Monte Carlo              effort=4096
+  adb-rain-stress   Monte Carlo              effort=16384
+  adb-rain-stress   Monte Carlo              effort=65536
+  adb-rain-stress   Monte Carlo              effort=262144
+  adb-rain-stress   Monte Carlo              effort=1.04858e+06
+  adb-rain-stress   Scrambled Sobol          effort=1024
+  adb-rain-stress   Scrambled Sobol          effort=4096
+  adb-rain-stress   Scrambled Sobol          effort=16384
+  adb-rain-stress   Scrambled Sobol          effort=65536
+  adb-rain-stress   Scrambled Sobol          effort=262144
+  adb-rain-stress   Scrambled Sobol          effort=1.04858e+06
+  adb-rain-stress   Stratified               effort=1024
+  adb-rain-stress   Stratified               effort=4096
+  adb-rain-stress   Stratified               effort=16384
+  adb-rain-stress   Stratified               effort=65536
+  adb-rain-stress   Stratified               effort=262144
+  adb-rain-stress   Stratified               effort=1.04858e+06
+  adb-rain-stress   Importance sampling      effort=1024
+  adb-rain-stress   Importance sampling      effort=4096
+  adb-rain-stress   Importance sampling      effort=16384
+  adb-rain-stress   Importance sampling      effort=65536
+  adb-rain-stress   Importance sampling      effort=262144
+  adb-rain-stress   Importance sampling      effort=1.04858e+06
+  adb-rain-stress   Latent Monte Carlo       effort=1024
+  adb-rain-stress   Latent Monte Carlo       effort=4096
+  adb-rain-stress   Latent Monte Carlo       effort=16384
+  adb-rain-stress   Latent Monte Carlo       effort=65536
+  adb-rain-stress   Latent Monte Carlo       effort=262144
+  adb-rain-stress   Latent Monte Carlo       effort=1.04858e+06
+  adb-rain-stress   Calm-peeled MC           effort=1024
+  adb-rain-stress   Calm-peeled MC           effort=4096
+  adb-rain-stress   Calm-peeled MC           effort=16384
+  adb-rain-stress   Calm-peeled MC           effort=65536
+  adb-rain-stress   Calm-peeled MC           effort=262144
+  adb-rain-stress   Calm-peeled MC           effort=1.04858e+06
+  adb-rain-stress   Plain QAE                effort=3
+  adb-rain-stress   Plain QAE                effort=1.5
+  adb-rain-stress   Plain QAE                effort=0.8
+  adb-rain-stress   Plain QAE                effort=0.5
+  adb-rain-stress   Plain QAE                effort=0.3
+  adb-rain-stress   Plain QAE                effort=0.1
+  adb-rain-stress   Plain QAE                effort=0.03
+  adb-rain-stress   Plain QAE                effort=0.01
+  adb-rain-stress   Plain QAE                effort=0.003
+  adb-rain-stress   Shock-split QAE (ours)   effort=3
+  adb-rain-stress   Shock-split QAE (ours)   effort=1.5
+  adb-rain-stress   Shock-split QAE (ours)   effort=0.8
+  adb-rain-stress   Shock-split QAE (ours)   effort=0.5
+  adb-rain-stress   Shock-split QAE (ours)   effort=0.3
+  adb-rain-stress   Shock-split QAE (ours)   effort=0.1
+  adb-rain-stress   Shock-split QAE (ours)   effort=0.03
+  adb-rain-stress   Shock-split QAE (ours)   effort=0.01
+  adb-rain-stress   Shock-split QAE (ours)   effort=0.003
+
+Queries needed for 10% relative RMSE (adb-rain-stress)
+method                      expected_principal  joint_attachment_p  portfolio_loss_exc  portfolio_stop_los  both_bonds_exhaust
+Monte Carlo                              1,024               1,207               8,028               9,025           1,018,961
+Scrambled Sobol                          1,024               1,024               2,871               5,631             903,492
+Stratified                               1,023               1,023               2,520               5,879             488,688
+Importance sampling                      1,024               1,024               1,273               1,208              63,123
+Latent Monte Carlo                       1,024               1,024               7,112              11,789         > max tried
+Calm-peeled MC                           1,024           exact (0)               1,024               1,024              34,309
+Plain QAE                                  456                 537               1,023               3,115              14,018
+Shock-split QAE (ours)                     100                 100                 188                 299               3,588
+
+Queries needed for 1% relative RMSE (adb-rain-stress)
+method                      expected_principal  joint_attachment_p  portfolio_loss_exc  portfolio_stop_los  both_bonds_exhaust
+Monte Carlo                             31,806             126,912             476,142             703,139         > max tried
+Scrambled Sobol                          2,328              20,336             106,893             135,062         > max tried
+Stratified                               5,625              38,375             274,465             420,469         > max tried
+Importance sampling                      9,860              94,545              85,978              94,486         > max tried
+Latent Monte Carlo                      55,509             118,382             680,707         > max tried         > max tried
+Calm-peeled MC                           1,024           exact (0)              14,190              13,914         > max tried
+Plain QAE                                5,200              11,394              13,621              19,022             148,668
+Shock-split QAE (ours)                     321                 152               1,555               3,187              66,608
+  adb-rain-cover    Monte Carlo              effort=1024
+  adb-rain-cover    Monte Carlo              effort=4096
+  adb-rain-cover    Monte Carlo              effort=16384
+  adb-rain-cover    Monte Carlo              effort=65536
+  adb-rain-cover    Monte Carlo              effort=262144
+  adb-rain-cover    Monte Carlo              effort=1.04858e+06
+  adb-rain-cover    Scrambled Sobol          effort=1024
+  adb-rain-cover    Scrambled Sobol          effort=4096
+  adb-rain-cover    Scrambled Sobol          effort=16384
+  adb-rain-cover    Scrambled Sobol          effort=65536
+  adb-rain-cover    Scrambled Sobol          effort=262144
+  adb-rain-cover    Scrambled Sobol          effort=1.04858e+06
+  adb-rain-cover    Stratified               effort=1024
+  adb-rain-cover    Stratified               effort=4096
+  adb-rain-cover    Stratified               effort=16384
+  adb-rain-cover    Stratified               effort=65536
+  adb-rain-cover    Stratified               effort=262144
+  adb-rain-cover    Stratified               effort=1.04858e+06
+  adb-rain-cover    Importance sampling      effort=1024
+  adb-rain-cover    Importance sampling      effort=4096
+  adb-rain-cover    Importance sampling      effort=16384
+  adb-rain-cover    Importance sampling      effort=65536
+  adb-rain-cover    Importance sampling      effort=262144
+  adb-rain-cover    Importance sampling      effort=1.04858e+06
+  adb-rain-cover    Latent Monte Carlo       effort=1024
+  adb-rain-cover    Latent Monte Carlo       effort=4096
+  adb-rain-cover    Latent Monte Carlo       effort=16384
+  adb-rain-cover    Latent Monte Carlo       effort=65536
+  adb-rain-cover    Latent Monte Carlo       effort=262144
+  adb-rain-cover    Latent Monte Carlo       effort=1.04858e+06
+  adb-rain-cover    Calm-peeled MC           effort=1024
+  adb-rain-cover    Calm-peeled MC           effort=4096
+  adb-rain-cover    Calm-peeled MC           effort=16384
+  adb-rain-cover    Calm-peeled MC           effort=65536
+  adb-rain-cover    Calm-peeled MC           effort=262144
+  adb-rain-cover    Calm-peeled MC           effort=1.04858e+06
+  adb-rain-cover    Plain QAE                effort=3
+  adb-rain-cover    Plain QAE                effort=1.5
+  adb-rain-cover    Plain QAE                effort=0.8
+  adb-rain-cover    Plain QAE                effort=0.5
+  adb-rain-cover    Plain QAE                effort=0.3
+  adb-rain-cover    Plain QAE                effort=0.1
+  adb-rain-cover    Plain QAE                effort=0.03
+  adb-rain-cover    Plain QAE                effort=0.01
+  adb-rain-cover    Plain QAE                effort=0.003
+  adb-rain-cover    Shock-split QAE (ours)   effort=3
+  adb-rain-cover    Shock-split QAE (ours)   effort=1.5
+  adb-rain-cover    Shock-split QAE (ours)   effort=0.8
+  adb-rain-cover    Shock-split QAE (ours)   effort=0.5
+  adb-rain-cover    Shock-split QAE (ours)   effort=0.3
+  adb-rain-cover    Shock-split QAE (ours)   effort=0.1
+  adb-rain-cover    Shock-split QAE (ours)   effort=0.03
+  adb-rain-cover    Shock-split QAE (ours)   effort=0.01
+  adb-rain-cover    Shock-split QAE (ours)   effort=0.003
+
+Queries needed for 10% relative RMSE (adb-rain-cover)
+method                      expected_principal  joint_attachment_p  portfolio_loss_exc  portfolio_stop_los  both_bonds_exhaust
+Monte Carlo                              1,024               2,950              10,770              15,986         > max tried
+Scrambled Sobol                          1,024               1,033               8,810              13,864         > max tried
+Stratified                               1,023               1,023               4,826               4,593         > max tried
+Importance sampling                      1,024               1,024               1,764               1,258             198,935
+Latent Monte Carlo                       1,024               2,568              11,222              15,310         > max tried
+Calm-peeled MC                           1,024           exact (0)               1,024               1,024              68,116
+Plain QAE                                1,087                 712               1,386               2,728              22,234
+Shock-split QAE (ours)                     100                 100                 208                 393               4,474
+
+Queries needed for 1% relative RMSE (adb-rain-cover)
+method                      expected_principal  joint_attachment_p  portfolio_loss_exc  portfolio_stop_los  both_bonds_exhaust
+Monte Carlo                             35,628             148,425         > max tried         > max tried         > max tried
+Scrambled Sobol                          2,023              24,191             145,052             255,397         > max tried
+Stratified                               4,274              58,791             307,675             401,458         > max tried
+Importance sampling                     11,462              79,792             166,148             165,277         > max tried
+Latent Monte Carlo                      56,626             309,048         > max tried         > max tried         > max tried
+Calm-peeled MC                           1,024           exact (0)              19,121              32,453         > max tried
+Plain QAE                                7,482               8,801              20,377              99,932             303,049
+Shock-split QAE (ours)                     238                 143               1,801              28,538              46,745
+
+Saved results\benchmark.csv and plots in results/
+(.venv) PS C:\Mitesh\ADBChallenge\adb_jointloss> python run.py summary   
+
+Queries needed for 10% relative RMSE (adb-base)
+method                      expected_principal  joint_attachment_p  portfolio_loss_exc  portfolio_stop_los  both_bonds_exhaust
+Monte Carlo                              1,024               2,950               8,775              11,600         > max tried
+Scrambled Sobol                          1,024               1,033               5,187              10,440         > max tried
+Stratified                               1,023               1,023               2,500               3,495         > max tried
+Importance sampling                      1,024               1,256               1,030               1,024             126,665
+Latent Monte Carlo                       1,024               2,568               8,175              12,819         > max tried
+Calm-peeled MC                           1,024           exact (0)               1,024               1,024              68,116
+Plain QAE                                  792                 748               1,624               2,259              18,052
+Shock-split QAE (ours)                     100                 100                 100                 192               5,397
+
+Queries needed for 1% relative RMSE (adb-base)
+method                      expected_principal  joint_attachment_p  portfolio_loss_exc  portfolio_stop_los  both_bonds_exhaust
+Monte Carlo                             42,156             148,425             653,072         > max tried         > max tried
+Scrambled Sobol                          2,496              24,191             138,677             156,864         > max tried
+Stratified                               5,000              58,791             225,403             340,089         > max tried
+Importance sampling                     11,329             115,009              98,381             170,981         > max tried
+Latent Monte Carlo                      71,845             309,048             703,225         > max tried         > max tried
+Calm-peeled MC                           1,024           exact (0)               5,778              22,623         > max tried
+Plain QAE                               10,047              12,116              29,519              20,417             326,912
+Shock-split QAE (ours)                     231                 143               3,992               2,570              42,257
+
+Queries needed for 10% relative RMSE (adb-independent)
+method                      expected_principal  joint_attachment_p  portfolio_loss_exc  portfolio_stop_los  both_bonds_exhaust
+Monte Carlo                              1,024               4,712              13,991              25,084         > max tried
+Scrambled Sobol                          1,024               1,556               9,961              19,058         > max tried
+Stratified                               1,023               1,023               4,717               5,787         > max tried
+Importance sampling                      1,024               1,277               1,024               1,207             331,951
+Latent Monte Carlo                       1,024               2,522              27,770              38,329         > max tried
+Calm-peeled MC                       exact (0)           exact (0)           exact (0)           exact (0)           exact (0)
+Plain QAE                                  463               1,262               1,665               3,072              65,992
+Shock-split QAE (ours)               exact (0)           exact (0)           exact (0)           exact (0)           exact (0)
+
+Queries needed for 1% relative RMSE (adb-independent)
+method                      expected_principal  joint_attachment_p  portfolio_loss_exc  portfolio_stop_los  both_bonds_exhaust
+Monte Carlo                             37,691             293,290         > max tried         > max tried         > max tried
+Scrambled Sobol                          2,115              55,939             177,856             214,386         > max tried
+Stratified                               6,440             107,172             335,632             777,174         > max tried
+Importance sampling                     12,127              57,334             105,347             142,337         > max tried
+Latent Monte Carlo                      37,797             393,486             934,483         > max tried         > max tried
+Calm-peeled MC                       exact (0)           exact (0)           exact (0)           exact (0)           exact (0)
+Plain QAE                                6,356              10,067              19,601              28,661             593,121
+Shock-split QAE (ours)               exact (0)           exact (0)           exact (0)           exact (0)           exact (0)
+
+Queries needed for 10% relative RMSE (adb-common-shock)
+method                      expected_principal  joint_attachment_p  portfolio_loss_exc  portfolio_stop_los  both_bonds_exhaust
+Monte Carlo                              1,024               2,789               6,542               8,713         > max tried
+Scrambled Sobol                          1,024               1,024               4,255               5,813         > max tried
+Stratified                               1,023               1,023               1,401               3,737             908,858
+Importance sampling                      1,024               1,286               1,024               1,024             106,140
+Latent Monte Carlo                       1,024               1,768               6,346               6,209         > max tried
+Calm-peeled MC                           1,024           exact (0)               1,024               1,024              56,555
+Plain QAE                                  439                 446                 901               1,780              21,749
+Shock-split QAE (ours)                     100                 100                 100                 230               3,759
+
+Queries needed for 1% relative RMSE (adb-common-shock)
+method                      expected_principal  joint_attachment_p  portfolio_loss_exc  portfolio_stop_los  both_bonds_exhaust
+Monte Carlo                             43,550             145,031             466,876             837,443         > max tried
+Scrambled Sobol                          2,552              16,641              78,698              68,821         > max tried
+Stratified                               5,002              42,923             110,970             304,553         > max tried
+Importance sampling                     10,869              86,990              91,866              96,269         > max tried
+Latent Monte Carlo                      84,210             299,143             652,440             928,830         > max tried
+Calm-peeled MC                           1,024           exact (0)               7,861              12,867         > max tried
+Plain QAE                                6,007               5,286              12,824              21,092             193,974
+Shock-split QAE (ours)                     362                 148               1,536               3,746              39,832
+
+Queries needed for 10% relative RMSE (adb-rain-stress)
+method                      expected_principal  joint_attachment_p  portfolio_loss_exc  portfolio_stop_los  both_bonds_exhaust
+Monte Carlo                              1,024               1,207               8,028               9,025           1,018,961
+Scrambled Sobol                          1,024               1,024               2,871               5,631             903,492
+Stratified                               1,023               1,023               2,520               5,879             488,688
+Importance sampling                      1,024               1,024               1,273               1,208              63,123
+Latent Monte Carlo                       1,024               1,024               7,112              11,789         > max tried
+Calm-peeled MC                           1,024           exact (0)               1,024               1,024              34,309
+Plain QAE                                  456                 537               1,023               3,115              14,018
+Shock-split QAE (ours)                     100                 100                 188                 299               3,588
+
+Queries needed for 1% relative RMSE (adb-rain-stress)
+method                      expected_principal  joint_attachment_p  portfolio_loss_exc  portfolio_stop_los  both_bonds_exhaust
+Monte Carlo                             31,806             126,912             476,142             703,139         > max tried
+Scrambled Sobol                          2,328              20,336             106,893             135,062         > max tried
+Stratified                               5,625              38,375             274,465             420,469         > max tried
+Importance sampling                      9,860              94,545              85,978              94,486         > max tried
+Latent Monte Carlo                      55,509             118,382             680,707         > max tried         > max tried
+Calm-peeled MC                           1,024           exact (0)              14,190              13,914         > max tried
+Plain QAE                                5,200              11,394              13,621              19,022             148,668
+Shock-split QAE (ours)                     321                 152               1,555               3,187              66,608
+
+Queries needed for 10% relative RMSE (adb-rain-cover)
+method                      expected_principal  joint_attachment_p  portfolio_loss_exc  portfolio_stop_los  both_bonds_exhaust
+Monte Carlo                              1,024               2,950              10,770              15,986         > max tried
+Scrambled Sobol                          1,024               1,033               8,810              13,864         > max tried
+Stratified                               1,023               1,023               4,826               4,593         > max tried
+Importance sampling                      1,024               1,024               1,764               1,258             198,935
+Latent Monte Carlo                       1,024               2,568              11,222              15,310         > max tried
+Calm-peeled MC                           1,024           exact (0)               1,024               1,024              68,116
+Plain QAE                                1,087                 712               1,386               2,728              22,234
+Shock-split QAE (ours)                     100                 100                 208                 393               4,474
+
+Queries needed for 1% relative RMSE (adb-rain-cover)
+method                      expected_principal  joint_attachment_p  portfolio_loss_exc  portfolio_stop_los  both_bonds_exhaust
+Monte Carlo                             35,628             148,425         > max tried         > max tried         > max tried
+Scrambled Sobol                          2,023              24,191             145,052             255,397         > max tried
+Stratified                               4,274              58,791             307,675             401,458         > max tried
+Importance sampling                     11,462              79,792             166,148             165,277         > max tried
+Latent Monte Carlo                      56,626             309,048         > max tried         > max tried         > max tried
+Calm-peeled MC                           1,024           exact (0)              19,121              32,453         > max tried
+Plain QAE                                7,482               8,801              20,377              99,932             303,049
+Shock-split QAE (ours)                     238                 143               1,801              28,538              46,745
+(.venv) PS C:\Mitesh\ADBChallenge\adb_jointloss> python run.py scaling
+1) Chain portfolios (neighbours share shocks, plus one regional quake shock)
+   n  width  exact s  P(>=2 exhausted)  peeled-MC relerr@1e5  ShockSplitQAE queries (eps 10%)  logical qubits
+   2      2     0.01         3.163e-05                 0.056                           69,540              32
+   5      5     0.26         1.697e-04                 0.069                           75,420              60
+  10      5     1.08         4.713e-04                 0.025                           72,640             101
+  20      5     3.89         1.368e-03                 0.056                           42,080             182
+  40      5    13.06         4.219e-03                 0.037                           26,600             343
+
+2) Denser shock graphs (n = 12): classical exact cost vs graph width
+ reach  shocks  width  memory GB   exact s  logical qubits
+     1      22      4     0.0166      0.26             114
+     2      32      7       2.08     35.26             144
+     3      41     11    1.3e+03   too big             171
+     4      49     16   4.06e+06   too big             195
+     6      62     28   9.91e+14   too big             234
+
+3) Resource estimate for the arithmetic stratum circuit (chain portfolios)
+  countries | shocks | logical_qubits | toffoli_per_A | cnot_per_A | rotations_per_A | toffoli_per_Q | max_grover_power | toffoli_total_depth_path | statevector_gb_fp32
+  2 | 2 | 32 | 202 | 1,288 | 501 | 532 | 200 | 106,602 | 34.4
+  5 | 9 | 60 | 692 | 3,968 | 1,291 | 1,624 | 200 | 325,492 | 9.22e+09
+  10 | 19 | 101 | 1,494 | 8,376 | 2,591 | 3,392 | 200 | 679,894 | 2.03e+22
+  20 | 39 | 182 | 3,176 | 17,504 | 5,191 | 7,080 | 200 | 1,419,176 | 4.9e+46
+  50 | 99 | 423 | 8,378 | 45,512 | 12,991 | 18,448 | 200 | 3,697,978 | 1.73e+119
+(.venv) PS C:\Mitesh\ADBChallenge\adb_jointloss> python run.py circuit
+Full loader A (ADB base case):
+  expected_principal_loss_usd              circuit 10063513.35   exact 10063513.35
+  joint_attachment_probability             circuit 0.04413776873   exact 0.04413776873
+  portfolio_loss_exceedance_probability    circuit 0.01204672091   exact 0.01204672091
+  portfolio_stop_loss_usd                  circuit 282354.6986   exact 282354.6986
+  both_bonds_exhausted_probability         circuit 3.163304631e-05   exact 3.163304631e-05
+
+Stratum loaders for 'both exhausted', after Q^k A (circuit vs ideal):
+  1 shocks   k=0  circuit 0.00068582   ideal 0.00068582
+  1 shocks   k=1  circuit 0.00616114   ideal 0.00616114
+  1 shocks   k=2  circuit 0.01705172   ideal 0.01705172
+  2+ shocks  k=0  circuit 0.10174060   ideal 0.10174060
+  2+ shocks  k=1  circuit 0.68408791   ideal 0.68408791
+  2+ shocks  k=2  circuit 0.99725614   ideal 0.99725614
+
+Gate counts of the stratum circuit (lookup objective, basis u/cx):
+  {'A': {'u': 22745, 'cx': 19301}, 'A_depth': 28348, 'Q': {'u': 47915, 'cx': 42022}, 'Q_depth': 57810}
+(.venv) PS C:\Mitesh\ADBChallenge\adb_jointloss> python -m pytest -q tests
+...............                                                                                                                     [100%]
+15 passed in 5.54s
+(.venv) PS C:\Mitesh\ADBChallenge\adb_jointloss> 

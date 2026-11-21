@@ -1,0 +1,23 @@
+1) Chain portfolios (neighbours share shocks, plus one regional quake shock)
+   n  width  exact s  P(>=2 exhausted)  peeled-MC relerr@1e5       ShockSplitQAE queries (eps 10%)  logical qubits
+   2      2     0.00         3.163e-05                 0.056                     69,540              32
+   5      5     0.18         1.697e-04                 0.069                     75,420              60
+  10      5     0.70         4.713e-04                 0.025                     72,640             101
+  20      5     2.66         1.368e-03                 0.056                     42,080             182
+  40      5    12.03         4.219e-03                 0.037                     26,600             343
+
+2) Denser shock graphs (n = 12): classical exact cost vs graph width
+ reach  shocks  width  memory GB   exact s  logical qubits
+     1      22      4     0.0166      0.23             114
+     2      32      7       2.08     25.10             144
+     3      41     11    1.3e+03   too big             171
+     4      49     16   4.06e+06   too big             195
+     6      62     28   9.91e+14   too big             234
+
+3) Resource estimate for the arithmetic stratum circuit (chain portfolios)
+  countries | shocks | logical_qubits | toffoli_per_A | cnot_per_A | rotations_per_A | toffoli_per_Q | max_grover_power | toffoli_total_depth_path | statevector_gb_fp32
+  2 | 2 | 32 | 202 | 1,288 | 501 | 532 | 200 | 106,602 | 34.4
+  5 | 9 | 60 | 692 | 3,968 | 1,291 | 1,624 | 200 | 325,492 | 9.22e+09
+  10 | 19 | 101 | 1,494 | 8,376 | 2,591 | 3,392 | 200 | 679,894 | 2.03e+22
+  20 | 39 | 182 | 3,176 | 17,504 | 5,191 | 7,080 | 200 | 1,419,176 | 4.9e+46
+  50 | 99 | 423 | 8,378 | 45,512 | 12,991 | 18,448 | 200 | 3,697,978 | 1.73e+119
